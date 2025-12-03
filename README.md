@@ -65,11 +65,11 @@ This project implements a distributed backtesting engine that parallelizes tradi
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                  Raft Cluster (3 nodes)                 │
-│  ┌──────────┐      ┌──────────┐      ┌──────────┐      │
-│  │  Node 1  │◄────►│  Node 2  │◄────►│  Node 3  │      │
+│  ┌──────────┐      ┌──────────┐      ┌──────────┐       │
+│  │  Node 1  │◄────►│  Node 2  │◄────►│  Node 3  │       │
 │  │ (Follower)│      │ (Leader) │      │(Follower)│      │
-│  │Port: 5100│      │Port: 5101│      │Port: 5102│      │
-│  └──────────┘      └──────────┘      └──────────┘      │
+│  │Port: 5100│      │Port: 5101│      │Port: 5102│       │
+│  └──────────┘      └──────────┘      └──────────┘       │
 │       │                  │                  │           │
 └───────┼──────────────────┼──────────────────┼───────────┘
         │                  │ Job Distribution │
@@ -203,7 +203,7 @@ After successful build in `build/` directory:
 
 ## Evaluation Results
 
-### Summary: 6/6 Evaluations PASSED ✅
+### Summary: 6/6 Evaluations PASSED 
 ```
 ✓ E1: Correctness (7 Test Executables - 18 individual tests)
 ✓ E2: Scalability (Multi-Worker Performance)
@@ -269,7 +269,7 @@ After successful build in `build/` directory:
 - **Workers Registered (Initial):** 2/2
 - **Workers Reconnected (New Leader):** 2/2
 - **Node Rejoin:** Node 2 successfully rejoined as follower
-- **Result:** E3 PASSED ✅
+- **Result:** E3 PASSED 
 
 ### E4: Worker Recovery Results
 - **Worker Registration:** Successful
@@ -277,14 +277,14 @@ After successful build in `build/` directory:
 - **Total Worker Registrations:** 2 (original + replacement)
 - **Checkpoint Verification:** Save/load/resume successful
 - **Full System Test:** Passed with checkpointing
-- **Result:** E4 PASSED ✅
+- **Result:** E4 PASSED 
 
 ### E5: Checkpoint Persistence Results
 - **Test 1 - Save and load:** PASSED (job 12345, 250 symbols)
 - **Test 2 - Exists check:** PASSED
 - **Test 3 - Delete:** PASSED
 - **Test 4 - Multiple checkpoints:** PASSED (jobs 1001-1005)
-- **Result:** E5 PASSED ✅ (4/4 tests)
+- **Result:** E5 PASSED  (4/4 tests)
 
 ### E6: Concurrent Jobs Results
 
@@ -299,7 +299,7 @@ After successful build in `build/` directory:
 - Job 1 (TSLA): Return=-41.748%, Sharpe=-1.618, MaxDD=45.44%
 - Checkpoint saved at 100 symbols
 - Checkpoint deleted after successful completion
-- Result: E6 PASSED ✅ (2/2 tests)
+- Result: E6 PASSED  (2/2 tests)
 
 ---
 
@@ -596,15 +596,15 @@ sleep 3
 ## What We Achieved
 
 ### Completed Features
-✅ 3-node Raft consensus cluster with automatic failover  
-✅ Distributed worker pool with checkpoint-based recovery  
-✅ Binary TCP protocol (15 message types)  
-✅ Least-loaded job scheduling  
-✅ SMA crossover trading strategy  
-✅ Comprehensive test suite (7 executables, 18 tests)  
-✅ 6/6 evaluation criteria passed  
-✅ Complete automation scripts for evaluation  
-✅ Deployment ready for Khoury Linux cluster  
+ 3-node Raft consensus cluster with automatic failover  
+ Distributed worker pool with checkpoint-based recovery  
+ Binary TCP protocol (15 message types)  
+ Least-loaded job scheduling  
+ SMA crossover trading strategy  
+ Comprehensive test suite (7 executables, 18 tests)  
+ 6/6 evaluation criteria passed  
+ Complete automation scripts for evaluation  
+ Deployment ready for Khoury Linux cluster  
 
 ### Technical Challenges Overcome
 - **Raft log consistency** during rapid leader changes
